@@ -49,8 +49,6 @@ function draw() {
     if (bird.y < 0) {
         bird.y = 0;
         bird.velocity = 0;
-        gameRunning = false;
-
     }
 
     // Begrenzen Sie die Bewegung des Vogels am unteren Rand des Bildschirms
