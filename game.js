@@ -1,3 +1,5 @@
+
+// Start the game
 // Get the canvas element and its context
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -43,6 +45,22 @@ function draw() {
         let obstacleHeight = Math.random() * (canvas.height - 200) + 50;
         obstacles.push({ x: canvas.width, y: obstacleHeight });
     }
+
+    if (bird.y < 0) {
+        bird.y = 0;
+        bird.velocity = 0;
+        gameRunning = false;
+
+    }
+
+    // Begrenzen Sie die Bewegung des Vogels am unteren Rand des Bildschirms
+    if (bird.y + bird.height > canvas.height) {
+        bird.y = canvas.height - bird.height;
+        bird.velocity = 0;
+        gameRunning = false;
+
+    }
+
 
     // Draw obstacles
     obstacles.forEach((obstacle, index) => {
